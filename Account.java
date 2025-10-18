@@ -81,7 +81,19 @@ class ChequeAccount extends Account {
         }
     }
 }
-
+class SavingsAccount extends Account {
+    private double interestRate; 
+    public SavingsAccount(int accountNumber, int pin, double availableBalance, 
+                         double totalBalance) {
+        super(accountNumber, pin, availableBalance, totalBalance);
+        interestRate = 0.0025;
+    }
+    public void applyInterest() {
+        double interest = super.totalBalance * interestRate;
+        super.totalBalance += interest;
+        System.out.println("Interest applied: " + interest + ", new totalBalance is " + super.totalBalance);
+    }
+}
 /**************************************************************************
  * (C) Copyright 1992-2007 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
